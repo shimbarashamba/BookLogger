@@ -1,0 +1,12 @@
+<h2>{{ book.title }}</h2>
+<h3>Author: {{ book.author }}</h3>  <!-- Display the author -->
+<ul>
+    {% for session in sessions %}
+    <li>{{ session.date }}: {{ session.pages_read }} pages</li>
+    {% endfor %}
+</ul>
+
+<form action="{% url 'delete_book' book.pk %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Delete Book">
+</form>
